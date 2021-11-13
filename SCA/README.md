@@ -51,15 +51,15 @@ $ python setup.py install
 Download the experiment code.
 
 ```
-git clone https://github.com/blingcho/SCA_MEA.git
+$ git clone https://github.com/blingcho/SCA_MEA.git
 ```
 
 Set environment variables for OpenBLAS and libtorch.
 
 ```
-export BLAS=OpenBLAS
-export OpenBLAS_HOME=/opt/OpenBLAS
-export LD_LIBRARY_PATH=$OpenBLAS_HOME:$LD_LIBRARY_PATH
+$ export BLAS=OpenBLAS
+$ export OpenBLAS_HOME=/opt/OpenBLAS
+$ export LD_LIBRARY_PATH=$OpenBLAS_HOME:$LD_LIBRARY_PATH
 ```
 
 build projects
