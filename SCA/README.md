@@ -85,7 +85,7 @@ An attacker can locate the address in /opt/OpenBLAS/libopenblas.so.0 and use mma
 Alternatively, for testing purposes, you can obtain addresses of actual target addresses from analyzing process address map with ASLR disabled.
 
 
-Put target addresses in line 227~229 of SCA/conv.cpp in order.
+Put target addresses in line 227~229 of SCA/sca.cpp in order.
 
 ```c
 Line 226 : // insert target address
@@ -97,10 +97,10 @@ Line 229 : insert_target((void*)0x7fffxxxxxxxx); //kernel 2
 ### 2. set up conv layer
 
 In our experiments, we employ each of the four models (variations of resnet depend on ID).  
-Choose the conv layer with which you want to experiment.
+Choose the conv layer with which you want to experiment. 
 
 ```c
-Line 56 : // Construct and register conv layer.
+// SCA/sca.cpp
 Line 57 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 7).stride(2).padding(3))); //224
 Line 58 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 3).stride(2).padding(1))); //128
 Line 59 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 4).stride(1).padding(1))); //64
@@ -110,7 +110,7 @@ Line 60 : conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 3
 Make sure the input data for your choosed conv layer is correct.
 
 ```c
-Line 194 : //input data
+// SCA/sca.cpp
 Line 195 : //at::Tensor inputTensor = torch::ones({1, 3,224,224});
 Line 196 : //at::Tensor inputTensor = torch::ones({1, 3,128,128});
 Line 197 : //at::Tensor inputTensor = torch::ones({1, 3,64,64});
