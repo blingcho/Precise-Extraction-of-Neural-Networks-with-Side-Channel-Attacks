@@ -80,8 +80,8 @@ $ make
 
 ### 1. get target addresses
 
-When the batch size is small, OpenBLAS performs matrix multiplication using the sgemm itcopy, sgemm oncopy, and sgemm kernel functions.  
-An attacker can locate the address in /opt/OpenBLAS/libopenblas.so.0 and use mmap to obtain the virtual address.  
+When the batch size is small, OpenBLAS performs matrix multiplication using the sgemm itcopy, sgemm oncopy, and sgemm kernel functions.
+An attacker can locate the address in /opt/OpenBLAS/libopenblas.so.0 and use mmap to obtain the virtual address.
 Alternatively, for testing purposes, you can obtain addresses of actual target addresses from analyzing process address map with ASLR disabled.
 
 
