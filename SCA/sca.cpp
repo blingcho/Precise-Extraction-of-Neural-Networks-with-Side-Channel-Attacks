@@ -28,14 +28,13 @@
 sem_t attack_sem;
 sem_t victim_sem;
 sem_t end_sem;
+
 bool trace_queue[MAX_BUF];
-int* a;
-void * targetOncopy;
-void * targetItcopy;
-void * targetKernel;
+
 int target_num = 0;
 void * target[TMAX];
-// Define a new Module.
+
+
 using namespace torch;
 
 void insert_target(void * addr){

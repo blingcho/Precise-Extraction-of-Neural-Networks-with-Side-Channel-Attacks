@@ -87,10 +87,10 @@ Alternatively, for testing purposes, you can obtain addresses of actual target a
 Put target addresses in line 227~229 of SCA/conv.cpp in order.
 
 ```c
-Line 227 : // insert target address
-Line 228 : insert_target((void*)0x7fffxxxxxxxx); //itcopy 0
-Line 229 : insert_target((void*)0x7fffxxxxxxxx); //oncopy 1
-Line 230 : insert_target((void*)0x7fffxxxxxxxx); //kernel 2
+Line 226 : // insert target address
+Line 227 : insert_target((void*)0x7fffxxxxxxxx); //itcopy 0
+Line 228 : insert_target((void*)0x7fffxxxxxxxx); //oncopy 1
+Line 229 : insert_target((void*)0x7fffxxxxxxxx); //kernel 2
 ```
 
 ### 2. set up conv layer
@@ -99,21 +99,21 @@ In our experiments, we employ each of the four models (variations of resnet depe
 Choose the conv layer with which you want to experiment.
 
 ```c
-Line 57 : // Construct and register conv layer.
-Line 58 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 7).stride(2).padding(3))); //224
-Line 59 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 3).stride(2).padding(1))); //128
-Line 60 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 4).stride(1).padding(1))); //64
-Line 61 : conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 3).stride(1).padding(1))); //32
+Line 56 : // Construct and register conv layer.
+Line 57 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 7).stride(2).padding(3))); //224
+Line 58 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 3).stride(2).padding(1))); //128
+Line 59 : //conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 4).stride(1).padding(1))); //64
+Line 60 : conv1 = register_module("conv1", nn::Conv2d(nn::Conv2dOptions(3, 64, 3).stride(1).padding(1))); //32
 ```
 
 Make sure the input data for your choosed conv layer is correct.
 
 ```c
-Line 195 : //input data
-Line 196 : //at::Tensor inputTensor = torch::ones({1, 3,224,224});
-Line 197 : //at::Tensor inputTensor = torch::ones({1, 3,128,128});
-Line 198 : //at::Tensor inputTensor = torch::ones({1, 3,64,64});
-Line 199 : at::Tensor inputTensor = torch::ones({1, 3,32,32});
+Line 194 : //input data
+Line 195 : //at::Tensor inputTensor = torch::ones({1, 3,224,224});
+Line 196 : //at::Tensor inputTensor = torch::ones({1, 3,128,128});
+Line 197 : //at::Tensor inputTensor = torch::ones({1, 3,64,64});
+Line 198 : at::Tensor inputTensor = torch::ones({1, 3,32,32});
 ```
 
 ### 3. running code
