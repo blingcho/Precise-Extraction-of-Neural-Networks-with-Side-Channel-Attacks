@@ -80,9 +80,10 @@ $ make
 
 ### 1. get target addresses
 
-When the batch size is small, OpenBLAS performs matrix multiplication using the sgemm itcopy, sgemm oncopy, and sgemm kernel functions.
-An attacker can locate the address in /opt/OpenBLAS/libopenblas.so.0 and use mmap to obtain the virtual address.
+When the batch size is small, OpenBLAS performs matrix multiplication using the sgemm itcopy, sgemm oncopy, and sgemm kernel functions.  
+An attacker can locate the address in /opt/OpenBLAS/libopenblas.so.0 and use mmap to obtain the virtual address.  
 Alternatively, for testing purposes, you can obtain addresses of actual target addresses from analyzing process address map with ASLR disabled.
+
 
 Put target addresses in line 227~229 of SCA/conv.cpp in order.
 
@@ -95,7 +96,7 @@ Line 229 : insert_target((void*)0x7fffxxxxxxxx); //kernel 2
 
 ### 2. set up conv layer
 
-In our experiments, we employ each of the four models (variations of resnet depend on ID).
+In our experiments, we employ each of the four models (variations of resnet depend on ID).  
 Choose the conv layer with which you want to experiment.
 
 ```c
